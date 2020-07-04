@@ -1,0 +1,61 @@
+@font-face {
+    font-family: food;
+    src: url(brusher.ttf);
+}
+
+header{
+    text-align: center;
+    padding-bottom: 130px;
+    background: url('pics/header.jpg');
+    margin-bottom: 0;
+    border-bottom: 2px solid gray;
+}
+
+.wall{
+    padding-bottom: 100px;
+}
+
+.ltitle{
+    text-align: center;
+    font-family: food;
+}
+
+.form-group{
+    border-top: 5pt;
+
+}
+
+img{
+    position: relative;
+    height: 60pt;
+    width: 60pt;
+    float: top center;
+}
+
+
+h1{
+    margin-bottom: 30pt;
+}
+
+
+/* Bordered form */
+.form1{
+    padding: 20px;
+    position: relative;
+    width: 250px;
+    height: 400px;
+    margin: 0 auto;
+    border: 3px solid #f1f1f1;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.navbar{
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.navbar-header{
+    font-family: food;
+}

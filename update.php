@@ -13,7 +13,7 @@ Subject: PLATFORM TECHNOLOGIES
 */
     include "mysqli_connect.php";
 
-    $user = $_SESSION['username'];
+    $id = $_SESSION['id'];
 
 
     if(is_null($_SESSION['username'])){
@@ -35,13 +35,12 @@ Subject: PLATFORM TECHNOLOGIES
         $pass1 = $_POST['pass1'];
         $pass2 = $_POST['pass2'];
         if($pwd == $pass1 AND $pass1 == $pass2){
-            $update = "UPDATE basic_info SET name='$nname', email='$nemail', user_name='$nuser' where user_name='$user' ";
+            $update = "UPDATE basic_info SET name='$nname', email='$nemail', user_name='$nuser' where id='$id' ";
             $result = mysqli_query($dbc,$update);
 
             $_SESSION['name'] =$nname;
             $_SESSION['email'] =$nemail;
             $_SESSION['username'] =$nuser;
-            $_SERVER['password'] =$pwd;
 
         
             phpAlert("Account Updated!");

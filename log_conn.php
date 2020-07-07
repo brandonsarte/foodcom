@@ -34,6 +34,7 @@ Subject: PLATFORM TECHNOLOGIES
             $_SESSION['password'] = $pwd;
             $_SESSION['name'] = $data['name'];
             $_SESSION['email'] = $data['email'];
+            $_SESSION['id'] = $data['id'];
 
             redirect("home.php");
         }

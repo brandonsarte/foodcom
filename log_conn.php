@@ -13,10 +13,8 @@ Subject: PLATFORM TECHNOLOGIES
 */
     include "mysqli_connect.php";
 
-
-
     if(isset($_POST['user1'])){
-        $uname =$_POST['user1'];
+        $uname = $_POST['user1'];
         $pwd = $_POST['pwd1'];
 
         $query = "SELECT * from basic_info where user_name = '$uname' AND password = '$pwd' ";

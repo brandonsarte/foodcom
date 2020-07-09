@@ -32,7 +32,7 @@ Subject: PLATFORM TECHNOLOGIES
             $_SESSION['password'] = $pwd;
             $_SESSION['name'] = $data['name'];
             $_SESSION['email'] = $data['email'];
-            $_SESSION['id'] = $data['id'];
+            $_SESSION['id'] = $data['ID'];
 
             redirect("home.php");
         }

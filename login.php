@@ -11,7 +11,6 @@ COURSE: 2-BS Information Technology
 Subject: PLATFORM TECHNOLOGIES
 
 */
-
 include "mysqli_connect.php";
 ?>
 
@@ -28,6 +27,7 @@ include "mysqli_connect.php";
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 
 
     <link rel="stylesheet" type="text/css" href="css/food.css">
@@ -55,6 +55,11 @@ include "mysqli_connect.php";
                 <button type="submit" class="btn btn-danger" name="submit">Login</button>
                 <button type="button" class="btn btn-default" data-toggle="modal" data-target="#sign">Sign Up</button>
             </div>
+            <hr>
+                <span class ="from-inline">
+                    <a href="google_conn.php" class="btn btn-danger btn-block"><i class="fa fa-google"></i> Sign in with <b>Google</b></a>
+                </span>
+            </hr>
             
         </form>
 

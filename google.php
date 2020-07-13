@@ -42,8 +42,8 @@
     
     //redirects user to homepage if there is already an account created in db
     if($gmail == $data['email']){
-        $data = mysqli_fetch_assoc($result);
         $_SESSION['password'] = $data['password'];
+        $_SESSION['username'] = $data['user_name'];
         redirect("home.php");
         die();
     }

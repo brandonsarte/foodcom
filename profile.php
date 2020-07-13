@@ -17,7 +17,9 @@ Subject: PLATFORM TECHNOLOGIES
         session_destroy();
         header("Location:login.php");
         die();
-    }
+        
+    }  
+
 
     $user = $_SESSION['username'];
     $pwd = $_SESSION['password'];
@@ -107,7 +109,10 @@ Subject: PLATFORM TECHNOLOGIES
                             <input class="form-control" type="text" value="<?php echo"$user";?>" name="nuser">
                             </div>
                         </div>
-                        <div class="form-group">
+                        <?php
+                        if(!$_SESSION['google']){
+                        echo
+                        '<div class="form-group">
                             <label class="col-md-3 control-label">Password:</label>
                             <div class="col-md-8">
                             <input class="form-control" type="password" name="pass1" id ="pass1" placeholder="Enter Password" required>
@@ -118,7 +123,9 @@ Subject: PLATFORM TECHNOLOGIES
                             <div class="col-md-8">
                             <input class="form-control" type="password" name="pass2" id="pass2" placeholder="Confirm Password" required>
                             </div>
-                        </div>
+                        </div>';
+                        }
+                        ?>
                         <div class="form-group">
                             <label class="col-md-3 control-label"></label>
                             <div class="col-md-8">
@@ -146,15 +153,25 @@ Subject: PLATFORM TECHNOLOGIES
                             <h4 class="modal-title">Please type your password to confirm account deletion<h4>
                         </div>
                         <div class="modal-body">
-                            <div class="form-group">
-                                <label for="pwd1">Password</label>
-                                <input type="password" class="form-control" id="pwd1" name="pwd1" placeholder="Enter Password" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="pwd2">Confirm Password</label>
-                                <input type="password" class="form-control" id="pwd2" name="pwd2" placeholder="Enter Password" required>
-                            </div>
+                        <?php
+                            if(!$_SESSION['google']){
+                                echo
+                                '<div class="form-group">
+                                    <label for="pwd1">Password</label>
+                                    <input type="password" class="form-control" id="pwd1" name="pwd1" placeholder="Enter Password" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pwd2">Confirm Password</label>
+                                    <input type="password" class="form-control" id="pwd2" name="pwd2" placeholder="Enter Password" required>
+                                </div>';
+                            }
+                            else{
+                                echo'
+                                <div class="form-group" style="text-align:center; font-size: 20px;">Are you sure?</div>';
+                            }
+                        ?>
                         </div>
+
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-success">Confirm</button>
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>

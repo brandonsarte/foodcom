@@ -13,13 +13,12 @@ Subject: PLATFORM TECHNOLOGIES
 */
     include "mysqli_connect.php";
 
-    $id = $_SESSION['id'];
-
-
     if(is_null($_SESSION['username'])){
         session_destroy();
         header("Location:login.php");
-    }
+        die();
+        
+    }  
 
     $user = $_SESSION['username'];
     $pwd = $_SESSION['password'];
@@ -32,26 +31,44 @@ Subject: PLATFORM TECHNOLOGIES
         $nemail = $_POST['nmail'];
         $nuser = $_POST['nuser'];
 
-        $pass1 = $_POST['pass1'];
-        $pass2 = $_POST['pass2'];
-        if($pwd == $pass1 AND $pass1 == $pass2){
-            $update = "UPDATE basic_info SET name='$nname', email='$nemail', user_name='$nuser' where id='$id' ";
-            $result = mysqli_query($dbc,$update);
 
-            $_SESSION['name'] =$nname;
-            $_SESSION['email'] =$nemail;
-            $_SESSION['username'] =$nuser;
+        if(!$_SESSION['google']){
+            $id = $_SESSION['id'];
+            $pass1 = $_POST['pass1'];
+            $pass2 = $_POST['pass2'];
 
-        
-            phpAlert("Account Updated!");
-            redirect("profile.php");
-            die();
+            if($pwd == $pass1 AND $pass1 == $pass2){
+                $update = "UPDATE basic_info SET name='$nname', email='$nemail', user_name='$nuser' where id='$id' ";
+                $result = mysqli_query($dbc,$update);
+
+                $_SESSION['name'] =$nname;
+                $_SESSION['email'] =$nemail;
+                $_SESSION['username'] =$nuser;
+
+            
+                phpAlert("Account Updated!");
+                redirect("profile.php");
+                die();
+            }
+            else{
+                phpAlert("Wrong Password!");
+                redirect("profile.php");
+                die();
+            }
         }
         else{
-            phpAlert("Wrong Password!");
-            redirect("profile.php");
-            die();
+                $gmail = $_SESSION['email'];
+                $update = "UPDATE basic_info SET name='$nname', email='$nemail', user_name='$nuser' where email='$gmail' ";
+                $result = mysqli_query($dbc,$update);
+
+                $_SESSION['name'] =$nname;
+                $_SESSION['email'] =$nemail;
+                $_SESSION['username'] =$nuser;
+
+            
+                phpAlert("Account Updated!");
+                redirect("profile.php");
+                die();
         }
-        
     }
 ?>

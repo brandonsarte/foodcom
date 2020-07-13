@@ -1,14 +1,12 @@
 <?php
-    session_start();
     require_once("vendor/autoload.php");
     $init = new Google_Client();
     $init->setClientId("969555137157-hmrvpkr9ho0th1u2469r41mgi8v67att.apps.googleusercontent.com");
     $init->setClientSecret("54e2Nr05oJGgycQu4Zu-fWb6");
     $init->setApplicationName("Food Commute");
-    $init->setRedirectUri("http://localhost:80/foodcom/google.php");
+    $init->setRedirectUri("http://localhost/foodcom/google.php");
     $init->addScope("email");
     $init->addScope("profile");
-
+    
     $loginURL = $init->createAuthUrl();
-    header("location:$loginURL");
 ?>

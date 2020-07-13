@@ -13,6 +13,13 @@ Subject: PLATFORM TECHNOLOGIES
 */
 session_start();
 
+//function to generate random password
+function password_generate($chars) 
+{
+  $data = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcefghijklmnopqrstuvwxyz';
+  return substr(str_shuffle($data), 0, $chars);
+}
+
 function redirect($msg){    //php function to use js redirection
     echo '<script> window.location.href="'.$msg .'" </script>';
 }

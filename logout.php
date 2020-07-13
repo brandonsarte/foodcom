@@ -11,8 +11,13 @@ COURSE: 2-BS Information Technology
 Subject: PLATFORM TECHNOLOGIES
 
 */
+    require_once("google_conn.php");
+
     session_start();
     unset($_SESSION['username']);
+    unset($_SESSION['token']);
+    unset($init);
+    session_abort();
     session_destroy();
     header("Location:login.php");
     exit();

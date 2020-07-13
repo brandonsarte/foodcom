@@ -13,7 +13,12 @@ Subject: PLATFORM TECHNOLOGIES
 */
     include "mysqli_connect.php";
 
-    session_start();
+    if(is_null($_SESSION['username'])){
+        session_destroy();
+        header("Location:login.php");
+        die();
+        
+    }  
 
     $user = $_SESSION['username'];
 
@@ -21,11 +26,7 @@ Subject: PLATFORM TECHNOLOGIES
 
     $result = mysqli_query($dbc,$delete);
 
-    $password = $_SESSION['password'];
-    $pwd1 = $_POST['pwd1'];
-    $pwd2 = $_POST['pwd2'];
-
-    if($password == $pwd1 AND $pwd1 == $pwd2){
+    if($_SESSION['google']){
         if(mysqli_num_rows($result) == 0){
 
             phpAlert("Account Deleted!");
@@ -39,7 +40,26 @@ Subject: PLATFORM TECHNOLOGIES
         }
     }
     else{
-        phpAlert("Error: Wrong Password!");
-        redirect("profile.php");
+        $password = $_SESSION['password'];
+        $pwd1 = $_POST['pwd1'];
+        $pwd2 = $_POST['pwd2'];
+
+        if($password == $pwd1 AND $pwd1 == $pwd2){
+            if(mysqli_num_rows($result) == 0){
+
+                phpAlert("Account Deleted!");
+                session_destroy();
+                redirect("login.php");
+                exit();
+            }
+            else{
+                phpAlert("Error: Please Try again!");
+                redirect("profile.php");
+            }
+        }
+        else{
+            phpAlert("Error: Wrong Password!");
+            redirect("profile.php");
+        }
     }
 ?>

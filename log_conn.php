@@ -28,6 +28,7 @@ Subject: PLATFORM TECHNOLOGIES
 
             //phpAlert($get_name);
             
+            $_SESSION['google'] = false;
             $_SESSION['username'] = $uname;
             $_SESSION['password'] = $pwd;
             $_SESSION['name'] = $data['name'];

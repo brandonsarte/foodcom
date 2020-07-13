@@ -12,6 +12,7 @@ Subject: PLATFORM TECHNOLOGIES
 
 */
 include "mysqli_connect.php";
+require_once("google_conn.php");
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +58,7 @@ include "mysqli_connect.php";
             </div>
             <hr>
                 <span class ="from-inline">
-                    <a href="google_conn.php" class="btn btn-danger btn-block"><i class="fa fa-google"></i> Sign in with <b>Google</b></a>
+                    <button class="btn btn-danger btn-block" onclick="window.location='<?php echo $loginURL ?>'"><i class="fa fa-google"></i> Sign in with <b>Google</b></button>
                 </span>
             </hr>
             
@@ -112,9 +113,3 @@ include "mysqli_connect.php";
 </body>
 
 </html>
-
-<?php
-
-
-
-?>

@@ -16,10 +16,9 @@ Subject: PLATFORM TECHNOLOGIES
     if(is_null($_SESSION['username'])){
         session_destroy();
         header("Location:login.php");
-        die();
-        
-    }
-         
+        die(); 
+    }   
+
     $user = $_SESSION['username'];
 
 ?>
@@ -29,6 +28,9 @@ Subject: PLATFORM TECHNOLOGIES
 
 <head>
     <title>Foodcom Home</title>
+
+    
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
@@ -40,8 +42,9 @@ Subject: PLATFORM TECHNOLOGIES
 
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
    
-
     <link rel="stylesheet" type="text/css" href="css/food.css">
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 
 </head>
 
@@ -64,7 +67,7 @@ Subject: PLATFORM TECHNOLOGIES
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="profile.php"><span class="glyphicon glyphicon-user"></span><?php echo"$user";?></a></li>
-            <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+            <li><a href="logout.php" class="g_id_signout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>           
         </ul>
     </div>
 </nav>
@@ -187,5 +190,14 @@ Subject: PLATFORM TECHNOLOGIES
     </div>
 
 </body>
+
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
 
 </html>

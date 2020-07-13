@@ -8,5 +8,6 @@
     $init->addScope("email");
     $init->addScope("profile");
     
+    //creates url to use google api login
     $loginURL = $init->createAuthUrl();
 ?>

@@ -26,6 +26,7 @@ Subject: PLATFORM TECHNOLOGIES
 
     $result = mysqli_query($dbc,$delete);
 
+    //if user logged using google account
     if($_SESSION['google']){
         if(mysqli_num_rows($result) == 0){
 
@@ -39,6 +40,7 @@ Subject: PLATFORM TECHNOLOGIES
             redirect("profile.php");
         }
     }
+    //if user is not using google account
     else{
         $password = $_SESSION['password'];
         $pwd1 = $_POST['pwd1'];

@@ -155,6 +155,7 @@ Subject: PLATFORM TECHNOLOGIES
                         </div>
                         <div class="modal-body">
                         <?php
+                            //code if user didn't use a google account to login
                             if(!$_SESSION['google']){
                                 echo
                                 '<div class="form-group">

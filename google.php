@@ -3,6 +3,7 @@
     require_once("google_conn.php");
     include "mysqli_connect.php";
     
+    
     if(isset($_SESSION['token'])){
         $init -> setAccessToken($_SESSION['token']);
     }
@@ -39,12 +40,14 @@
     $result = mysqli_query($dbc,$query);
     $data = mysqli_fetch_assoc($result);
     
+    //redirects user to homepage if there is already an account created in db
     if($gmail == $data['email']){
         $data = mysqli_fetch_assoc($result);
         $_SESSION['password'] = $data['password'];
         redirect("home.php");
         die();
     }
+    //creates an account in db using gmail credentials
     else{
         $pwd = password_generate(15);
         $_SESSION['password'] =$pwd;

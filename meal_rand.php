@@ -44,7 +44,6 @@ Subject: PLATFORM TECHNOLOGIES
    
     <link rel="stylesheet" type="text/css" href="css/food.css">
 
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
 
     <style>
         @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
@@ -126,10 +125,6 @@ Subject: PLATFORM TECHNOLOGIES
 
     <div class="container">
         <div class="row text-center">
-            <h3>
-                Feeling hungry?
-            </h3>
-            <h5>Get a random meal by clicking below</h5>
             <button class="button-primary" id="get_meal">Get Random Recipe </button>
         </div>
         <div id="meal" class="row meal"></div>
@@ -141,6 +136,7 @@ Subject: PLATFORM TECHNOLOGIES
     const get_meal_btn = document.getElementById('get_meal');
     const meal_container = document.getElementById('meal');
 
+    //executes when Get Randon Recipe is clicked
     get_meal_btn.addEventListener('click', () => {
 	fetch('https://www.themealdb.com/api/json/v1/1/random.php')
 		.then(res => res.json())
@@ -152,6 +148,7 @@ Subject: PLATFORM TECHNOLOGIES
 		});
     });
 
+    //function to create recipe
     const createMeal = meal => {
         const ingredients = [];
 
@@ -167,6 +164,7 @@ Subject: PLATFORM TECHNOLOGIES
             }
         }
 
+        //to display content in an organized manner
         const newInnerHTML = `<br>
             <div class="row">
                 <div class="columns five">

@@ -13,6 +13,7 @@ Subject: PLATFORM TECHNOLOGIES
 */
     include "mysqli_connect.php";
 
+    //redirects website to login.php if no user is logged in
     if(is_null($_SESSION['username'])){
         session_destroy();
         header("Location:login.php");
@@ -31,12 +32,13 @@ Subject: PLATFORM TECHNOLOGIES
         $nemail = $_POST['nmail'];
         $nuser = $_POST['nuser'];
 
-
+        //if user used google to login
         if(!$_SESSION['google']){
             $id = $_SESSION['id'];
             $pass1 = $_POST['pass1'];
             $pass2 = $_POST['pass2'];
 
+            //if password and confirm password is correct
             if($pwd == $pass1 AND $pass1 == $pass2){
                 $update = "UPDATE basic_info SET name='$nname', email='$nemail', user_name='$nuser' where id='$id' ";
                 $result = mysqli_query($dbc,$update);
@@ -56,6 +58,7 @@ Subject: PLATFORM TECHNOLOGIES
                 die();
             }
         }
+        //if user didn't used google to login
         else{
                 $gmail = $_SESSION['email'];
                 $update = "UPDATE basic_info SET name='$nname', email='$nemail', user_name='$nuser' where email='$gmail' ";

@@ -20,10 +20,12 @@ function password_generate($chars)
   return substr(str_shuffle($data), 0, $chars);
 }
 
+//function to redirect page
 function redirect($msg){    //php function to use js redirection
     echo '<script> window.location.href="'.$msg .'" </script>';
 }
 
+//function alert
 function phpAlert($msg) {   //php function to use js alert
     echo '<script type="text/javascript">alert("' . $msg . '");</script>';
 }

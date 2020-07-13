@@ -151,7 +151,15 @@ Subject: PLATFORM TECHNOLOGIES
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Please type your password to confirm account deletion<h4>
+                            <?php
+                                if(!$_SESSION['google']){
+                                    echo '<h4 class="modal-title">Please type your password to confirm account deletion<h4>';
+                                }
+                                else{
+                                    echo '<h4 class="modal-title align-center">WARNING<h4>';
+                                }
+                            
+                            ?>
                         </div>
                         <div class="modal-body">
                         <?php
@@ -169,7 +177,7 @@ Subject: PLATFORM TECHNOLOGIES
                             }
                             else{
                                 echo'
-                                <div class="form-group" style="text-align:center; font-size: 20px;">Are you sure?</div>';
+                                <div class="form-group" style="text-align:center; font-size: 20px;">Do you want to delete your account?</div>';
                             }
                         ?>
                         </div>

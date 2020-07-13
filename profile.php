@@ -60,6 +60,7 @@ Subject: PLATFORM TECHNOLOGIES
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="home.php">Home</a></li>
+                <li><a href="meal_rand.php"><strong class="glyphicon glyphicon-cutlery"> RandomRecipe</strong></a></li>
                 <!--
                 <li><a href="#">Page 1</a></li>
                 <li><a href="#">Page 2</a></li>
